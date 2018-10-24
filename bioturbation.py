@@ -1,5 +1,5 @@
-import plotly.offline as py
-import plotly.graph_objs as go
+# import plotly.offline as py
+# import plotly.graph_objs as go
 
 
 class SoilLayer:
@@ -46,7 +46,7 @@ def equal(lst, tol=1e-12):
     return diff < tol
 
 
-def bioturbation(config):
+def bioturbation(config, tol=10000):
     soil_profile = SoilProfile(config['n_soil_layers'],
                                config['soil_layer_depth'],      # Depth of the soil layers in the profile [m]
                                config['initial_conc'],          # Initial concentration in each layer [kg/m3]
@@ -66,10 +66,10 @@ def bioturbation(config):
             data_t = [layer.conc for layer in soil_profile.soil_layers]
         t += 1
         # If not converged after 10000 time steps, exit and set values as None
-        if t > 10000:
+        if t > tol:
             data[l].append(None)
             data_t = [None] * len(soil_profile.soil_layers)
-            print("Error: Steady state not reached after 10000 days. Simulation aborted.")
+            print("Error: Steady state not reached after {0} days. Simulation aborted.".format(tol))
 
     return data
 
