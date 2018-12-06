@@ -46,7 +46,7 @@ def equal(lst, tol=1e-12):
     return diff < tol
 
 
-def bioturbation(config, tol=10000):
+def bioturbation(config, max_iter=10000):
     soil_profile = SoilProfile(config['n_soil_layers'],
                                config['soil_layer_depth'],      # Depth of the soil layers in the profile [m]
                                config['initial_conc'],          # Initial concentration in each layer [kg/m3]
@@ -59,17 +59,15 @@ def bioturbation(config, tol=10000):
     t = 0
 
     # Perform bioturbation until concentration equal across the soil layers
-    while t < 29 or ((None not in data_t) and (not equal(data_t))):
+    while t < max_iter + 1 and not equal(data_t, tol=config['steady_state_tol']):
         soil_profile.bioturbation(86400)
         for l, layer in enumerate(soil_profile.soil_layers):
             data[l].append(layer.conc)
             data_t = [layer.conc for layer in soil_profile.soil_layers]
         t += 1
         # If not converged after 10000 time steps, exit and set values as None
-        if t > tol:
-            data[l].append(None)
-            data_t = [None] * len(soil_profile.soil_layers)
-            print("Error: Steady state not reached after {0} days. Simulation aborted.".format(tol))
+        if t > max_iter:
+            print("Warning: Steady state not reached after {0} days.".format(max_iter))
 
     return data
 
