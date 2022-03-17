@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+title: bioturbation-model
+message: 'If you use this model, please cite it.'
+type: software
+authors:
+  - given-names: Sam
+    family-names: Harrison
+    email: sharrison@ceh.ac.uk
+    affiliation: UK Centre for Ecology & Hydrology
+    orcid: 'https://orcid.org/0000-0001-8491-4720'
