@@ -2,9 +2,14 @@ cff-version: 1.2.0
 title: Bioturbation Model
 message: 'If you use this model, please cite it.'
 type: software
+abstract: >-
+  Simple model that predicts bioturbation due to earthworm
+  activity in a layered soil profile.
 authors:
   - given-names: Sam
     family-names: Harrison
     email: sharrison@ceh.ac.uk
     affiliation: UK Centre for Ecology & Hydrology
     orcid: 'https://orcid.org/0000-0001-8491-4720'
+license: BSD-3-Clause
+url: https://github.com/samharrison7/bioturbation-model.git
