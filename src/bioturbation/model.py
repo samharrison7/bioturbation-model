@@ -1,9 +1,10 @@
 import numpy as np
 import pandas as pd
-from .soil import SoilProfile
+import plotly.express as px
+from bioturbation.soil import SoilProfile
 
 
-def bioturbation(n_soil_layers, soil_layer_depth, initial_conc, earthworm_density, beta,
+def run(n_soil_layers, soil_layer_depth, initial_conc, earthworm_density, beta,
                  dt=86400, steady_state_tol=1e-12, max_iter=10000):
     """Perform the bioturabtion calculations"""
 
@@ -37,6 +38,11 @@ def as_df(data):
     df = pd.DataFrame(np.swapaxes(data,0,1),
                       columns=[f'soil_layer_{i+1}' for i in np.arange(0,data.shape[0])])
     return df
+
+
+def plot(data):
+    fig = px.line(as_df(data), labels={'value': 'concentration', 'index': 'time'})
+    fig.show()
 
 
 def equal(lst, tol=1e-12):

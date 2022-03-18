@@ -3,6 +3,9 @@ channels:
   - conda-forge
 dependencies:
   - python=3.10
+  - ipykernel
+  - build
   - numpy
   - plotly
+  - nbformat
   - pandas

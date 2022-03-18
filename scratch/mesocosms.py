@@ -1,8 +1,7 @@
-from bioturbation import bioturbation
+from bioturbation import model
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
-import sys
 
 # Mesocosms
 #   Volume of soil: 1.46e-3 m3
@@ -44,7 +43,7 @@ config = {
     'beta': 4.4229119627116475e-12
 }
 
-y_calc = bioturbation(config)
+y_calc = model(config)
 x_calc = range(0, len(y_calc[0]))
 print("Time to steady state: {0}".format(len(y_calc[0])))
 
