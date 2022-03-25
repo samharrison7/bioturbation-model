@@ -1,0 +1,13 @@
+name: bioturbation
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - ipykernel
+  - build
+  - numpy
+  - scipy
+  - matplotlib
+  - plotly
+  - nbformat
+  - pandas
