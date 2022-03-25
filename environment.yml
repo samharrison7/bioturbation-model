@@ -6,6 +6,7 @@ dependencies:
   - ipykernel
   - build
   - numpy
+  - scipy
   - plotly
   - nbformat
   - pandas
