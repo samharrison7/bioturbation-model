@@ -1,6 +1,8 @@
 # Bioturbation Model
 
-[![fair-software.eu](https://img.shields.io/badge/fair--software.eu-%E2%97%8F%20%20%E2%97%8F%20%20%E2%97%8F%20%20%E2%97%8F%20%20%E2%97%8B-yellow)](https://fair-software.eu) [![PyPI version](https://badge.fury.io/py/bioturbation.svg)](https://badge.fury.io/py/bioturbation)
+[![DOI](https://zenodo.org/badge/130231320.svg)](https://zenodo.org/badge/latestdoi/130231320)
+[![fair-software.eu](https://img.shields.io/badge/fair--software.eu-%E2%97%8F%20%20%E2%97%8F%20%20%E2%97%8F%20%20%E2%97%8F%20%20%E2%97%8B-yellow)](https://fair-software.eu)
+[![PyPI version](https://badge.fury.io/py/bioturbation.svg)](https://badge.fury.io/py/bioturbation)
 
 A simple model of earthworm bioturbation, using a layered soil profile. The model predicts the mixing of mass pools (e.g. of contaminants) over time as a function of earthworm density.
 
