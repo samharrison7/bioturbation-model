@@ -24,7 +24,7 @@ $ conda env create -f environment.yml
 
 ## Usage
 
-Check out the [examples](./examples/) directory for examples of how to use the model.
+Check out the [examples](./examples/) directory for examples of how to use the model. By default the model mixes only between adjacent soil layers; pass `transport_matrix=K` to `run()` to enable transport between any pair of layers — see [`examples/non_adjacent.ipynb`](./examples/non_adjacent.ipynb).
 
 ## Conceptualisation
 
@@ -33,7 +33,7 @@ See the [conceptualisation](./examples/conceptualisation.ipynb) notebook for a m
 ## Limitations
 
 No guarantee is given as the to scientific validity of this model for your data. The onus is on the user to verify this validity. Indeed, there are a number of limitations to the model as it stands which might limit its applicability:
-* Transport is only between *adjacent* soil layers, therefore neglecting preferential flow pathways, e.g. representing deep burrowing earthworms transporting tracers directly from upper to lower layers.
 * No change in soil properties due to bioturbation is modelled. That is, there is an implicit assumption that the amount of soil mixed between layers is negligible. This assumption might not always be valid.
+* All soil layers are assumed to have equal depth. With unequal depths, mass conservation requires $d_i K_{ij} = d_j K_{ji}$, which the current implementation does not enforce.
 
 We welcome requests for collaboration if you are interested in exploring the validity of the model for your own research. Please [get in touch](mailto:sharrison@ceh.ac.uk).

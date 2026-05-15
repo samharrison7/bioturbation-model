@@ -5,7 +5,7 @@ from bioturbation.soil import SoilProfile
 
 
 def run(n_soil_layers, soil_layer_depth, initial_conc, earthworm_density, beta,
-                 dt=86400, steady_state_tol=1e-12, max_iter=10000):
+                 dt=86400, steady_state_tol=1e-12, max_iter=10000, *, transport_matrix=None):
     """Perform the bioturabtion calculations"""
 
     # Set up the soil profile
@@ -13,7 +13,8 @@ def run(n_soil_layers, soil_layer_depth, initial_conc, earthworm_density, beta,
                                soil_layer_depth,        # Depth of the soil layers in the profile [m]
                                initial_conc,            # Initial concentration in each layer [kg/m3]
                                earthworm_density,       # Earthworm density for each layer [earthworms/m2]
-                               beta)                    # Empirical parameter relating earthworm density to depth to mix [m3/s]
+                               beta,                    # Empirical parameter relating earthworm density to depth to mix [m3/s]
+                               transport_matrix=transport_matrix)
 
     # Fill data fill the initial concentrations (specified as input)
     data = [[layer.conc] for layer in soil_profile.soil_layers]
